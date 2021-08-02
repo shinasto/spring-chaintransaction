@@ -1,0 +1,41 @@
+server:
+  port: 8080
+
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
+    generate-ddl: false
+    show-sql: true
+#  datasource:
+#    url: jdbc:mysql://localhost:3306/danji_master?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+#    username: admin
+#    password: admin
+#    driver-class-name: com.mysql.jdbc.Driver
+
+danji:
+  datasource:
+    master:
+      jdbcUrl: jdbc:mysql://localhost:3306/danji_master?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+      username: admin
+      password: admin
+      driver-class-name: com.mysql.jdbc.Driver
+    slave:
+      jdbcUrl: jdbc:mysql://localhost:3306/danji_slave?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+      username: admin
+      password: admin
+      driver-class-name: com.mysql.jdbc.Driver
+    db-1:
+      jdbcUrl: jdbc:mysql://localhost:3306/db_1?useSSL=false&useUnicode=true&characterEncoding=utf-8&serverTimezone=Asia/Seoul
+      username: admin
+      password: admin
+      driver-class-name: com.mysql.jdbc.Driver
+
+
+datasource:
+  hikari:
+    driverClassName: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    minimumIdle: 10
+    maximumPoolSize: 50
+    idleTimeout: 300000
+    maxLifetime: 500000
